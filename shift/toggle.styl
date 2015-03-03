@@ -1,0 +1,103 @@
+// -------
+// Toggle
+// -------
+
+// Mixin: Toggle
+// 
+// Create an on/off toggle switch.
+// Params:
+//   switch:  (background-color [text-color]) // colors for the moving part of the toggle
+//   switch_on:  (background-color [text-color]) // optional alternate colors for the switch in on position
+//   off: (background-color [text-color text]) // colors and content for the 'off' part of the toggle
+//   on:  (background-color [text-color text]) // colors and content for the 'on' part of the toggle
+//   side_width:  width of the on/off parts
+//   shadow: 0  // set shadow to 0 to disable inset shadow for on/off parts
+// 
+// ex. toggle()
+// ex. toggle(switch(red), switch_on(green))
+// ex. toggle(side_width: 4em, shadow: 0)
+// ex. toggle(switch(#7c00be), off: (#000 #fff 'NO'), on: (#fff #000 'YES'))
+
+toggle(switch = (#b2b3a1 inherit), off = (#bb9297 inherit), on = (#29c910 inherit), switch_on = 0, side_width = 0, shadow = 1)
+  display inline-block
+  overflow hidden
+  width 8em unless @width
+  height 2.5em unless @height
+  side_width = side_width or (@width / 2.5)
+  switch_on = switch_on or switch
+  
+  input[type="checkbox"]
+    display none
+    & + label
+      outline none
+      cursor pointer
+      position relative
+      display block
+      width 'calc(100% - %s)' % side_width
+      background-color switch[0]
+      height 100%
+      left side_width
+      z-index 0 unless @z-index
+      & > span
+        &, &::before, &::after
+          display inline-block
+          transition all 0.3s ease, color 0.2s ease
+        position absolute
+        top 50%
+        transform translateY(-50%)
+        color switch[1]
+        text-align center
+        width 100%
+        z-index (@z-index + 1)
+        &::before, &::after
+          position absolute
+          top 50%
+          transform translateY(-50%)
+        &::before
+          content off[2] or 'OFF'
+          width side_width
+          left - side_width
+          color off[1]
+        &::after
+          content on[2] or 'ON'
+          width 0
+          right 0
+          color transparent
+      &, &::before, &::after
+        transition all 0.3s ease
+      &::before, &::after
+        content ''
+        position absolute
+        display block
+        height 100%
+      &::before
+        background-color off[0]
+        width side_width
+        left - side_width
+        if shadow
+          box-shadow inset 1px 1px 1px darken(off[0], 18%), inset -1px -1px 1px darken(off[0], 18%)
+      &::after
+        background-color on[0]
+        width 0
+        right 0
+        if shadow
+          box-shadow inset 1px 1px 1px darken(on[0], 18%), inset -1px -1px 1px darken(on[0], 18%)
+    &:checked + label
+        left 0
+        background-color switch_on[0]
+        &::before
+          width 0
+          left 0
+        &::after
+          width side_width
+          right - side_width
+        & > span
+          color switch_on[1]
+          &::before
+            width 0
+            left 0
+            color transparent
+          &::after
+            width side_width
+            right - side_width
+            color on[1]

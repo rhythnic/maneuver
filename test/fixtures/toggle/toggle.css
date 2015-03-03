@@ -1,0 +1,120 @@
+.toggle {
+  display: inline-block;
+  overflow: hidden;
+  width: 8em;
+  height: 2.5em;
+}
+.toggle input[type="checkbox"] {
+  display: none;
+}
+.toggle input[type="checkbox"] + label {
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: calc(100% - 3.2em);
+  background-color: #b2b3a1;
+  height: 100%;
+  left: 3.2em;
+  z-index: 0;
+}
+.toggle input[type="checkbox"] + label > span {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: inherit;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+.toggle input[type="checkbox"] + label > span,
+.toggle input[type="checkbox"] + label > span::before,
+.toggle input[type="checkbox"] + label > span::after {
+  display: inline-block;
+  -webkit-transition: all 0.3s ease, color 0.2s ease;
+  -moz-transition: all 0.3s ease, color 0.2s ease;
+  -o-transition: all 0.3s ease, color 0.2s ease;
+  -ms-transition: all 0.3s ease, color 0.2s ease;
+  transition: all 0.3s ease, color 0.2s ease;
+}
+.toggle input[type="checkbox"] + label > span::before,
+.toggle input[type="checkbox"] + label > span::after {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.toggle input[type="checkbox"] + label > span::before {
+  content: 'OFF';
+  width: 3.2em;
+  left: -3.2em;
+  color: inherit;
+}
+.toggle input[type="checkbox"] + label > span::after {
+  content: 'ON';
+  width: 0;
+  right: 0;
+  color: transparent;
+}
+.toggle input[type="checkbox"] + label,
+.toggle input[type="checkbox"] + label::before,
+.toggle input[type="checkbox"] + label::after {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.toggle input[type="checkbox"] + label::before,
+.toggle input[type="checkbox"] + label::after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 100%;
+}
+.toggle input[type="checkbox"] + label::before {
+  background-color: #bb9297;
+  width: 3.2em;
+  left: -3.2em;
+  -webkit-box-shadow: inset 1px 1px 1px #a46d74, inset -1px -1px 1px #a46d74;
+  box-shadow: inset 1px 1px 1px #a46d74, inset -1px -1px 1px #a46d74;
+}
+.toggle input[type="checkbox"] + label::after {
+  background-color: #29c910;
+  width: 0;
+  right: 0;
+  -webkit-box-shadow: inset 1px 1px 1px #22a50d, inset -1px -1px 1px #22a50d;
+  box-shadow: inset 1px 1px 1px #22a50d, inset -1px -1px 1px #22a50d;
+}
+.toggle input[type="checkbox"]:checked + label {
+  left: 0;
+  background-color: #b2b3a1;
+}
+.toggle input[type="checkbox"]:checked + label::before {
+  width: 0;
+  left: 0;
+}
+.toggle input[type="checkbox"]:checked + label::after {
+  width: 3.2em;
+  right: -3.2em;
+}
+.toggle input[type="checkbox"]:checked + label > span {
+  color: inherit;
+}
+.toggle input[type="checkbox"]:checked + label > span::before {
+  width: 0;
+  left: 0;
+  color: transparent;
+}
+.toggle input[type="checkbox"]:checked + label > span::after {
+  width: 3.2em;
+  right: -3.2em;
+  color: inherit;
+}
