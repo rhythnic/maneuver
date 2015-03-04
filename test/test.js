@@ -30,7 +30,6 @@ function match_expected (out, p, done) {
   done();
 }
 
-
 function compile_and_match (p, done) {
   compile(p).done( function (out) {
     match_expected(out.result, p, done);
@@ -51,9 +50,6 @@ describe('api', function () {
   });
   it('exposes the correct version', function () {
     shift.version.should.eql($pkg.version);
-  });
-  it('exposes the library name', function () {
-    shift.libname.should.eql($pkg.name);
   });
 });
 

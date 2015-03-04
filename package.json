@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "css library of interactive elements built on stylus",
   "author": "Nick Baroni",
-  "main": "index.js",
+  "main": "shift.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/rhythnic/shift.git"
