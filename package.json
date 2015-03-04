@@ -16,7 +16,12 @@
     "stylus": "*",
     "mocha": "2.x",
     "should": "4.x",
-    "css-parse": "2.x"
+    "css-parse": "2.x",
+    "axis": "~0.3.0",
+    "gulp-stylus": "~2.0.1",
+    "gulp": "~3.8.11",
+    "jeet": "~6.1.2",
+    "rupture": "~0.6.1"
   },
   "scripts": {
     "test": "mocha"

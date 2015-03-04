@@ -1,13 +1,55 @@
+<!-- Documentation page -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Shift | Stylus Plugin</title>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="docs/css/docs.css">
 </head>
 <body>
-  <h2>Shift Documentation</h2>
+  <div class="wrap open">
+    <nav class="menu-left">
+      <ul>
+        <li><a href="#offcanvas">Offcanvas</a></li>
+        <li><a href="#toggle">Toggle</a></li>
+      </ul>
+    </nav>
+    <main class="content">
+      <button type="button" class="menu-btn" id="toggle-left-offcanvas"><i class="fa fa-bars"></i></button>
+      <header>
+        <div>
+          <h1>Shift</h1>
+          <ul>
+            <li><a href="https://github.com/rhythnic/shift">github</a></li>
+            <li><a href="#">npm</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>use</h2>
+          <ul>
+            <li><a href="#">nib</a></li>
+            <li><a href="#">axis</a></li>
+            <li><a href="#">jeet</a></li>
+            <li><a href="#">rupture</a></li>
+          </ul>
+        </div>
+      </header>
+      <article>
+        <section id="about">
+          <p>
+            Shift is a collection of stylus mixins to facilitate creating interactive css elements.
+            Some of the mixins help with creating the layout, most will require coordinating HTML and JavaScript
+            along with the mixins, and all of them will help you to create the effect of movement and transition
+            on the page.
+          </p> 
+        </section>
+      </article>
+    </main>
+  </div>
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="docs/js/docs.js"></script>
 </body>
 </html>
