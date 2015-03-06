@@ -20,22 +20,12 @@
     <main class="content">
       <button type="button" class="menu-btn" id="toggle-left-offcanvas"><i class="fa fa-bars"></i></button>
       <header>
-        <div>
-          <h1>Shift</h1>
-          <ul>
-            <li><a href="//github.com/rhythnic/shift">github</a></li>
-            <li><a href="#">npm</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2>use</h2>
-          <ul>
-            <li><a href="//tj.github.io/nib/">nib</a></li>
-            <li><a href="//axis.bitballoon.com/">axis</a></li>
-            <li><a href="//jeet.gs/">jeet</a></li>
-            <li><a href="//jenius.github.io/rupture/">rupture</a></li>
-          </ul>
-        </div>
+        <h1>Shift</h1>
+        <ul>
+          <li><a href="//github.com/rhythnic/shift">github</a></li>
+          <li><a href="#">npm</a></li>
+          <li><a href="//tj.github.io/nib/">nib</a></li>
+        </ul>
       </header>
       <article>
         <section id="about">
@@ -45,6 +35,43 @@
             along with the mixins, and all of them will help you to create the effect of movement and transition
             on the page.
           </p> 
+        </section>
+        <section id="offcanvas">
+          <h2>Offcanvas</h2>
+          <p class="description">
+            The offcanvas mixin allows you to create a menu that hides outside of it's parent element, and opens/closes by adding/removing
+            a class on the parent element.<br>
+            Note:  The offcanvas menu adopts the height of the parent container, so in most cases, you should specify the height of the parent container.
+          </p>
+          <div class="code">
+            <div>
+              <h4>HTML</h4>
+<pre class="html"><code>
+&lt;div class="my-wrap"&gt;
+  &lt;div class="menu-left"&gt;&lt;/div&gt;
+  &lt;div class="content"&gt;
+    &lt;button&gt;Toggle menu&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <div>
+              <h4>Stylus</h4>
+<pre class="stylus"><code>
+.my-wrap
+    offcanvas()
+</code></pre>
+            </div>
+            <div>
+              <h4>JavaScript</h4>
+<pre class="js"><code class="js">
+$('button').on('click', function (e) {
+  $('.my-wrap').toggleClass('open');
+})
+</code></pre>
+            </div>
+          </div> <!-- end of div.code -->
+
         </section>
       </article>
     </main>
