@@ -5,7 +5,9 @@ Maneuver is a css library of interactive elements built on top of [stylus](https
 
 ### Installation
 
-coming soon
+```
+npm install maneuver
+```
 
 ### Documentation
 

@@ -23,5 +23,14 @@
   },
   "engines": {
     "node": ">=0.8.0"
+  },
+  "keywords": [
+    "stylus",
+    "layout"
+  ],
+  "author": "Nick Baroni <nick@rhythnic.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rhythnic/maneuver/issues"
   }
 }
