@@ -9,7 +9,7 @@ coming soon
 
 ### Documentation
 
-coming soon
+<a href="http://rhythnic.github.io/shift/">Docs are here.</a>
 
 ### Miscellaneous
 
