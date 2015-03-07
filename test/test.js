@@ -2,7 +2,7 @@ var should   = require ('should'),
     path     = require ('path'),
     fs       = require('fs'),
     stylus   = require('accord').load('stylus'),
-    shift    = require('../'),
+    maneuver    = require('../'),
     cssparse = require('css-parse');
 
 /**********************************
@@ -12,7 +12,7 @@ var should   = require ('should'),
 var test_path = path.join(__dirname, 'fixtures');
 
 function compile(p) {
-  return stylus.renderFile(p, { use: shift() });
+  return stylus.renderFile(p, { use: maneuver() });
 }
 
 function match_expected (out, p, done) {
@@ -46,10 +46,10 @@ describe('api', function () {
     $pkg = require('../package.json');
   });
   it('exposes the library path', function () {
-    shift.path.should.match(/shift/);
+    maneuver.path.should.match(/maneuver/);
   });
   it('exposes the correct version', function () {
-    shift.version.should.eql($pkg.version);
+    maneuver.version.should.eql($pkg.version);
   });
 });
 

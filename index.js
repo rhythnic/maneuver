@@ -11,7 +11,7 @@ module.exports = function (opts) {
 
     if (implicit) {
       style.import('nib');
-      style.import('shift');
+      style.import('maneuver');
     }
   };
 

@@ -1,12 +1,12 @@
 {
-  "name": "shift",
+  "name": "maneuver",
   "version": "0.0.1",
   "description": "css library of interactive elements built on stylus",
   "author": "Nick Baroni",
-  "main": "shift.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/rhythnic/shift.git"
+    "url": "git://github.com/rhythnic/maneuver.git"
   },
   "dependencies": {
     "nib": "1.x"
@@ -16,13 +16,7 @@
     "stylus": "*",
     "mocha": "2.x",
     "should": "4.x",
-    "css-parse": "2.x",
-    "axis": "~0.3.0",
-    "gulp-stylus": "~2.0.1",
-    "gulp": "~3.8.11",
-    "jeet": "~6.1.2",
-    "rupture": "~0.6.1",
-    "gulp-connect": "~2.2.0"
+    "css-parse": "2.x"
   },
   "scripts": {
     "test": "mocha"

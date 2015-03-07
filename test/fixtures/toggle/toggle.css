@@ -26,9 +26,10 @@
   -o-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  color: inherit;
+  color: #000;
   text-align: center;
-  width: 100%;
+  width: calc(100% - 2em);
+  padding: 0 1em;
   z-index: 1;
 }
 .toggle input[type="checkbox"] + label > span,
@@ -55,7 +56,7 @@
   content: 'OFF';
   width: 3.2em;
   left: -3.2em;
-  color: inherit;
+  color: #000;
 }
 .toggle input[type="checkbox"] + label > span::after {
   content: 'ON';
@@ -106,7 +107,7 @@
   right: -3.2em;
 }
 .toggle input[type="checkbox"]:checked + label > span {
-  color: inherit;
+  color: #000;
 }
 .toggle input[type="checkbox"]:checked + label > span::before {
   width: 0;
@@ -116,5 +117,5 @@
 .toggle input[type="checkbox"]:checked + label > span::after {
   width: 3.2em;
   right: -3.2em;
-  color: inherit;
+  color: #000;
 }
