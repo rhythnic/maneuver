@@ -139,7 +139,7 @@
 // ex. offcanvas_multi()
 // ex. offcanvas_multi(size: (10em 0 20em 0), push: (0 0 0 0), show: (0 0 80em 0), menu: ('nav' 0 '.about-us' 0), content: 'article', open_class: ('open-nav' 0 'open-about' 0))
 
-offcanvas_multi(size = (0 0 0 15em), push = (0 0 0 40em), show = (0 0 0 80em), menu = ('.menu-top' '.menu-right' '.menu-bottom' '.menu-left'), content = '.content', open_class = ('open-top' 'open-right' 'open-bottom' 'open-left'))
+offcanvas_multi(size = (0 15em 0 15em), push = (0 40em 0 40em), show = (0 80em 0 80em), menu = ('.menu-top' '.menu-right' '.menu-bottom' '.menu-left'), content = '.content', open_class = ('open-top' 'open-right' 'open-bottom' 'open-left'))
   position relative
   overflow hidden
   & > *
@@ -189,7 +189,7 @@ offcanvas_multi(size = (0 0 0 15em), push = (0 0 0 40em), show = (0 0 0 80em), m
 // ex. offcanvas()
 // ex. offcanvas(side: 'right', size: 25em, push: 0, show: 80em, menu: 'nav', content: 'article', open: 'open')
 
-offcanvas(side = 'left', size = 15em, push = 40em, show = 80em, menu = ".menu-left", content = ".content", open_class = "open")
+offcanvas(side = 'left', size = 15em, push = 40em, show = 80em, menu = ".menu", content = ".content", open_class = "open")
   if side is 'top'
     offcanvas_multi(size: (size 0 0 0), push: (push 0 0 0), show: (show 0 0 0), menu: (menu 0 0 0), content: content, open_class: (open_class 0 0 0))
   if side is 'right'

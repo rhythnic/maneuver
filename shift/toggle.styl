@@ -18,7 +18,7 @@
 // ex. toggle(side_width: 4em, shadow: 0)
 // ex. toggle(switch(#7c00be), off: (#000 #fff 'NO'), on: (#fff #000 'YES'))
 
-toggle(switch = (#b2b3a1 inherit), off = (#bb9297 inherit), on = (#29c910 inherit), switch_on = 0, side_width = 0, shadow = 1)
+toggle(switch = (#b2b3a1 #000), off = (#bb9297 #000), on = (#29c910 #000), switch_on = 0, side_width = 0, shadow = 1)
   display inline-block
   overflow hidden
   width 8em unless @width
@@ -47,7 +47,8 @@ toggle(switch = (#b2b3a1 inherit), off = (#bb9297 inherit), on = (#29c910 inheri
         transform translateY(-50%)
         color switch[1]
         text-align center
-        width 100%
+        width calc(100% - 2em)
+        padding 0 1em
         z-index (@z-index + 1)
         &::before, &::after
           position absolute

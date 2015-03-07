@@ -14,7 +14,7 @@ yellow = #F2B33D
 orange = #F29B30
 red = #F22E2E
 
-mobile = 40em
+mobile = 30em
 tablet = 60em
 laptop = 80em
 /**********************************
@@ -27,17 +27,22 @@ html, body
   height 100%
   color gray
   
+article
+  max-width 100em
+  margin 0 auto
+  
 section
   margin 0 1em
   +above(mobile)
-    margin 0 2em
+    margin 0 3em
   h2
     margin-top 1.5em
 pre
   pre()
 code
   code()
-  
+dt
+  font-weight bold
 /**********************************
     Style classes
 **********************************/
@@ -59,6 +64,16 @@ code
 .description
   area(#d8d8d8)
   
+.notes
+  background lighten(yellow, 70%)
+  box-sizing border-box
+  padding 1em
+  +above(laptop)
+    padding 2em
+    margin-top 3em
+  h3
+    margin 0
+  
 /**********************************
     Wrap
 **********************************/
@@ -69,18 +84,18 @@ code
   &.open
     #toggle-left-offcanvas
         left 20em
-  .menu-left
+  & > .menu
     background teal
     z-index 10
 #toggle-left-offcanvas
-  background transparent
+  background #fff
   left: 0
       
 
 /**********************************
     Menu left
 **********************************/
-nav.menu-left
+nav.menu
   ul
     reset-list()
     li
@@ -103,6 +118,7 @@ nav.menu-left
 
 header
   overflow hidden
+  text-align: center
   h1
     display inline-block
   h1
@@ -140,9 +156,81 @@ header
 **********************************/
 
 #offcanvas
+  button
+    button()
   .code
     & > div
       +above(laptop)
         col(1/3)
     h4
       color darken(red, 30%)
+  .specification
+    clear both
+  .offcanvas-multi
+    clear both
+    & dt
+      margin: 0.5em 0
+  .notes, .offcanvas-single
+    +above(laptop)
+      col(1/2)
+
+.oc-examples
+  padding 2em
+  & > div
+    display inline-block
+    box-sizing border-box
+    width 20em
+    margin-right: 1em
+    height 20em
+    background red
+    overflow hidden
+.oc-1
+  offcanvas(side: 'top', size: 8em, push: 0, show: 0, menu: 'nav', content: '.main')
+  nav
+    background teal
+  button
+    align(both)
+.oc-2
+  offcanvas(side: 'right', size: 12em, push: 0em, show: 0)
+  nav
+    background yellow
+  .content
+    text-align: center
+.oc-3
+  offcanvas_multi(size: (10em 0 5em 0), push: (0 0 0 0), show: (0 0 0 0))
+  .menu-top
+    background orange
+  .menu-bottom
+    background gray
+  .content
+    text-align: center
+    button
+      position: relative
+      top 60%
+
+/**********************************
+    Toggle
+**********************************/
+
+#toggle
+  .code
+    & > div
+      +above(laptop)
+        col(1/2)
+    h4
+      color darken(red, 30%)
+      
+  .notes, .toggle
+    +above(laptop)
+      col(1/2)
+  .heat-toggle
+    toggle()
+  .examples
+    clear both
+.toggle-1 .switch
+  toggle(switch: (#6C7F7E #000), switch_on: (lighten(#6C7F7E, 50%) #fff), off: (#DC3522 #000 'NO'), on: (#D9CB9E #fff 'YES'))
+.toggle-2 .switch
+  width 15em
+  height 5em
+  font-size: 2em
+  toggle(side_width: 3em)
