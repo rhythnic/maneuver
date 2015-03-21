@@ -1,6 +1,6 @@
 {
   "name": "maneuver",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "css library of interactive elements built on stylus",
   "author": "Nick Baroni",
   "main": "index.js",
@@ -16,7 +16,14 @@
     "stylus": "*",
     "mocha": "2.x",
     "should": "4.x",
-    "css-parse": "2.x"
+    "css-parse": "2.x",
+    "axis": "~0.3.0",
+    "gulp": "~3.8.11",
+    "gulp-connect": "~2.2.0",
+    "gulp-stylus": "~2.0.1",
+    "jeet": "~6.1.2",
+    "nib": "~1.1.0",
+    "rupture": "~0.6.1"
   },
   "scripts": {
     "test": "mocha"
