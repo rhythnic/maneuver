@@ -25,51 +25,20 @@
 //   push:    boolean - menu pushes content instead of overlapping (4 values)
 //   content: css selector for content area
 //   open:    classes that parent offcanvas element will toggle for open (4 values)
--offcanvasContentPushSettings(size, share, show, push, content, open)
-  if push[0] && size[0]
-    mw = -minPositiveValue(share[0], show[0])
-    if (mw)
-      @media (max-width mw)
-        &.{open[0]} {content}
-          margin-top size[0]
-          margin-bottom - size[0]
-    else
-      &.{open[0]} {content}
-        margin-top size[0]
-        margin-bottom - size[0]
-  if push[1] && size[1]
-    mw = -minPositiveValue(share[1], show[1])
-    if (mw)
-      @media (max-width mw)
-        &.{open[1]} {content}
-          margin-right size[1]
-          margin-left - size[1]
-    else
-      &.{open[1]} {content}
-        margin-right size[1]
-        margin-left - size[1]
-  if push[2] && size[2]
-    mw = -minPositiveValue(share[2], show[2])
-    if (mw)
-      @media (max-width mw)
-        &.{open[2]} {content}
-          margin-bottom size[2]
-          margin-top - size[2]
-    else
-      &.{open[2]} {content}
-        margin-bottom size[2]
-        margin-top - size[2]
-  if push[3] && size[3]
-    mw = -minPositiveValue(share[3], show[3])
-    if (mw)
-      @media (max-width mw)
-        &.{open[3]} {content}
-          margin-left size[3]
-          margin-right - size[3]
-    else
-      &.{open[3]} {content}
-        margin-left size[3]
-        margin-right - size[3]
+-offcanvasContentPushSettings(size, share, show, push, content, open, sides)
+  opposite = ('bottom' 'left' 'top' 'right')
+  for num in 0 1 2 3
+    if push[num] && size[num]
+      mw = -minPositiveValue(share[num], show[num])
+      if (mw)
+        @media (max-width mw)
+          &.{open[num]} {content}
+            margin-{sides[num]}: size[num]
+            margin-{opposite[num]}: - size[num]
+      else
+        &.{open[num]} {content}
+          margin-{sides[num]}: size[num]
+          margin-{opposite[num]}: - size[num]
 
 
 // Function: Offcanvas Content Share Settings
@@ -81,33 +50,27 @@
 //   share:   min-width at which menu shares screen with content (4 values)
 //   content: css selector for content area
 //   open:    classes that parent offcanvas element will toggle for open (4 values)
--offcanvasContentShareSettings(size, share, content, open)
+-offcanvasContentShareSettings(size, share, content, open, sides)
+  for num in 0 1 2 3
+    if share[num]
+      @media (min-width share[num])
+        &.{open[num]} > {content}
+          margin-{sides[num]}: size[num]
+
   if share[0]
     @media (min-width share[0])
       &.{open[0]}
-        & > {content}
-          margin-top size[0]
         if open[2]
           &:not(.{open[2]}) > {content}
             height 'calc(100% - %s)' % size[0]
           &.{open[2]} > {content}
             height 'calc(100% - %s)' % (size[0] + size[2])
-  if share[1]
-    @media (min-width share[1])
-      &.{open[1]} > {content}
-        margin-right size[1]
   if share[2]
     @media (min-width share[2])
       &.{open[2]}
-        & > {content}
-          margin-bottom size[2]
         if open[0]
           &:not(.{open[0]}) > {content}
             height 'calc(100% - %s)' % size[2]
-  if share[3]
-    @media (min-width share[3])
-      &.{open[3]} > {content}
-        margin-left size[3]
 
 
 // Function: Offcanvas Content Show Settings
@@ -119,11 +82,16 @@
 //   show:    min-width at which menus are always visible (4 values)
 //   content: css selector for content area
 //   open:    classes that parent offcanvas element will toggle for open (4 values)
--offcanvasContentShowSettings(size, show, content, open)
+-offcanvasContentShowSettings(size, show, content, open, sides)
+  for num in 0 1 2 3
+    if show[num]
+      @media (min-width show[num])
+        & > {content}
+          margin-{sides[num]}: size[num]
+
   if show[0]
     @media (min-width show[0])
       & > {content}
-        margin-top size[0]
         if show[2] and show[2] <= show[0]
           height 'calc(100% - %s)' % (size[0] + size[2])
         else
@@ -131,14 +99,10 @@
       if open[2]
         &.{open[2]}:not(.{open[0]}) > {content}
           height 'calc(100% - %s)' % (size[0] + size[2])
-  if show[1]
-    @media (min-width show[1])
-      & > {content}
-        margin-right size[1]
+
   if show[2]
     @media (min-width show[2])
       & > {content}
-        margin-bottom size[2]
         if show[0] and show[0] <= show[2]
           height 'calc(100% - %s)' % (size[0] + size[2])
         else
@@ -146,10 +110,7 @@
       if open[0]
         &.{open[0]}:not(.{open[2]}) > {content}
           height 'calc(100% - %s)' % (size[0] + size[2])
-  if show[3]
-    @media (min-width show[3])
-      & > {content}
-        margin-left size[3]
+
 
 // -------
 // Offcanvas
@@ -168,14 +129,14 @@
 //   content: css selector for content area
 //   open:    classes that parent offcanvas element will toggle for open (4 values)
 
--offcanvasContentSettings(size, share, show, push, content, open)
+-offcanvasContentSettings(size, share, show, push, content, open, sides)
   & > {content}
     position relative
     height 100%
     overflow-y auto
-  -offcanvasContentPushSettings(size, share, show, push, content, open)
-  -offcanvasContentShareSettings(size, share, content, open)
-  -offcanvasContentShowSettings(size, show, content, open)
+  -offcanvasContentPushSettings(size, share, show, push, content, open, sides)
+  -offcanvasContentShareSettings(size, share, content, open, sides)
+  -offcanvasContentShowSettings(size, show, content, open, sides)
 
 
 
@@ -193,6 +154,8 @@
 -offcanvasMenuSettings(side, size, show)
   position absolute
   overflow-y auto
+  {side} 0
+  
   if side is 'left' or side is 'right'
     width size
     height 100%
@@ -202,21 +165,16 @@
     height size
     left 0
   if side is 'left'
-    left 0
     transform translate(- size, 0)
   if side is 'right'
-    right 0
     transform translate(size, 0)
   if side is 'top'
-    top 0
     transform translate(0, - size)
   if side is 'bottom'
-    bottom 0
     transform translate(0, size)
   if show
     @media (min-width show)
       transform translate(0,0)
-
 
 // Mixin: Offcanvas Multi
 // 
@@ -238,37 +196,21 @@
 offcanvasMulti(size = (0 15em 0 15em), share = (0 40em 0 40em), show = (0 80em 0 80em), push = (0 0 0 0),
                menu = ('.menu-top' '.menu-right' '.menu-bottom' '.menu-left'), content = '.content',
                open = ('open-top' 'open-right' 'open-bottom' 'open-left'), transition = all 0.3s ease)
+  sides = ('top' 'right' 'bottom' 'left')
   position relative
   overflow hidden
   & > *
     transition transition
-
-  if size[0]
-    & > {menu[0]}
-      -offcanvasMenuSettings('top', size[0], show[0])
-    &.{open[0]}
-      & > {menu[0]}
-        transform translate(0,0)
-  if size[1]
-    & > {menu[1]}
-      -offcanvasMenuSettings('right', size[1], show[1])
-    &.{open[1]}
-      & > {menu[1]}
-        transform translate(0,0)
-  if size[2]
-    & > {menu[2]}
-      -offcanvasMenuSettings('bottom', size[2], show[2])
-    &.{open[2]}
-      & > {menu[2]}
-        transform translate(0,0)
-  if size[3]
-    & > {menu[3]}
-      -offcanvasMenuSettings('left', size[3], show[3])
-    &.{open[3]}
-      & > {menu[3]}
-        transform translate(0,0)
   
-  -offcanvasContentSettings(size, share, show, push, content, open)
+  for num in 0 1 2 3
+    if size[num]
+      & > {menu[num]}
+        -offcanvasMenuSettings(sides[num], size[num], show[num])
+      &.{open[num]}
+        & > {menu[num]}
+          transform translate(0,0)
+  
+  -offcanvasContentSettings(size, share, show, push, content, open, sides)
 
 
 // Mixin: Offcanvas
