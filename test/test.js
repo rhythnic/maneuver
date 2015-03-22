@@ -72,3 +72,13 @@ describe('toggle', function () {
     compile_and_match(path.join($path, 'toggle.styl'), done);
   });
 });
+
+describe('flipcard', function () {
+  var $path;
+  before(function () {
+    $path = path.join(test_path, 'flipcard');
+  });
+  it('flipcard', function (done) {
+    compile_and_match(path.join($path, 'flipcard.styl'), done);
+  });
+});

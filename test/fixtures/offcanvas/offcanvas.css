@@ -8,10 +8,10 @@
 .offcanvas-menu > .menu {
   position: absolute;
   overflow-y: auto;
+  left: 0;
   width: 15em;
   height: 100%;
   top: 0;
-  left: 0;
   -webkit-transform: translate(-15em, 0);
   -moz-transform: translate(-15em, 0);
   -o-transform: translate(-15em, 0);

@@ -13,8 +13,9 @@
   <div class="wrap open">
     <nav class="menu">
       <ul>
-        <li><a href="#offcanvas">Offcanvas</a></li>
-        <li><a href="#toggle">Toggle</a></li>
+        <li><a href="#offcanvas">offcanvas</a></li>
+        <li><a href="#toggle">toggle</a></li>
+        <li><a href="#flipcard">flipCard</a></li>
       </ul>
     </nav>
     <main class="content">
@@ -247,6 +248,63 @@ $('button').on('click', function (e) {
                 </div>
               </div>
             </div>
+        </section>
+        <section id="flipcard">
+          <h2>Flipcard</h2>
+          <p class="description">
+            Flipcard is a two sided card that flips around either the X or Y axis.
+          </p>
+          <div class="flipcard1" onclick="this.classList.toggle('flip');">
+            <div>
+              <div><p>front content</p></div>
+              <div><p>back content</p></div>
+            </div>
+          </div>
+          <div class="code">
+            <div>
+              <h4>HTML</h4>
+<pre class="html"><code>
+&lt;div class="my-card"&gt;
+  &lt;div&gt;
+    &lt;div&gt;front content&lt;/div&gt;
+    &lt;div&gt;back content&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <div>
+              <h4>Stylus</h4>
+<pre class="stylus"><code>
+.my-card
+    flipCard()
+</code></pre>
+            </div>
+            <div>
+              <h4>JavaScript</h4>
+<pre class="js"><code class="js">
+$('.my-card').on('click', function (e) {
+  $(e.currentTarget).toggleClass('flip');
+})
+</code></pre>
+            </div>
+          </div> <!-- end of div.code -->
+          <div class="specification">
+            <h3>Specification</h3>
+            <div>
+              <div class="flipcard">
+                <h4>flipCard()</h4>
+                <h5>parameters and defaults:</h5>
+                <dl>
+                  <dt>axis:Y</dt>
+                  <dd>the axis about which the card rotates (X or Y)</dd>
+                  <dt>flip: 'flip'</dt>
+                  <dd>the class that causes the parent container to flip</dd>
+                  <dt>speed: 0.6s</dt>
+                  <dd>the speed it takes for the card to flip</dd>
+                  <dt>perspective: 1000</dt>
+                  <dd>css 3D perspective, the bigger the number, the further away it seems you are</dd>
+                </dl>
+              </div>
         </section>
       </article>
     </main>
