@@ -13,6 +13,9 @@ npm install maneuver
 
 <a href="http://rhythnic.github.io/maneuver-docs/">Docs are here.</a>
 
+### Release 0.0.11
+In the offcanvas mixin, some terminology changed.  Push used to be the minimum screen width at which the content width shrinks when the menu is open.  Now, 'share', refers to that width.  Push is now a boolean parameter for choosing to push the content instead of overlapping it.  Push only applies when show or share aren't in effect.
+
 ### Contributing
 Please contribute by forking the repository, adding your mixin, and doing a pull request.  If the main contributers think it should be part of the package then also do the mocha tests and we'll merge your pull request.
 
