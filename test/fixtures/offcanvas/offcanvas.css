@@ -4,6 +4,9 @@
 }
 .offcanvas-menu > * {
   transition: all 0.3s ease;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .offcanvas-menu > .menu {
   position: absolute;
