@@ -1,8 +1,8 @@
 {
   "name": "maneuver",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "css library of interactive elements built on stylus",
-  "author": "Nick Baroni",
+  "author": "Nick Baroni <nick@rhythnic.com>",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -35,7 +35,6 @@
     "stylus",
     "layout"
   ],
-  "author": "Nick Baroni <nick@rhythnic.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rhythnic/maneuver/issues"
