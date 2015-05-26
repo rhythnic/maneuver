@@ -1,0 +1,56 @@
+-tabNav(side, navSize)
+  flex 0 0 navSize
+  if side is 'left' or side is 'right'
+    overflow-y auto
+    & > *
+      display block
+  else
+    & > *
+      float left
+  & > *
+    cursor pointer
+
+
+-tabBody(fade, height, active)
+  flex 1 1 auto
+  position relative
+  & > *
+    position absolute
+    top 0
+    left 0
+    width 100%
+    if height
+      height 100%
+      overflow-y auto
+    pointer-events none
+    opacity 0
+    if fade
+      transition opacity fade ease
+    &.{active}
+      unless height
+        position relative
+      pointer-events auto
+      opacity 1
+
+tabs(side='top', height=0, navSize=auto, fade=0.3s, active="active")
+  display flex
+  if height
+    height height
+  flex-wrap nowrap
+  if side is 'top'
+    flex-direction column
+  if side is 'bottom'
+    flex-direction column-reverse
+  if side is 'left'
+    flex-direction row
+  if side is 'right'
+    flex-direction row-reverse
+
+  & > ul
+    margin 0
+    padding 0
+
+  & > *:first-child
+    -tabNav(side, navSize)
+  & > *:last-child
+    -tabBody(fade, height, active)
