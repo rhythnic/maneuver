@@ -1,3 +1,17 @@
+// -------
+// Tabs
+// -------
+
+// Mixin: Tabs
+// 
+// Params:  side='top', height=auto, navSize=auto, fade=0.3s, active="active"
+//   side: options are 'top', 'right', 'bottom', 'left'
+//   height: height of parent element
+//   navSize: width(left/right) or height(top/bottom) of tab navigation
+//   fade: transition speed on opacity
+//   active: class added to active tab content to show it.
+
+
 -tabNav(side, navSize)
   flex 0 0 navSize
   if side is 'left' or side is 'right'
@@ -16,10 +30,11 @@
   position relative
   & > *
     position absolute
+    box-sizing border-box
     top 0
     left 0
     width 100%
-    if height
+    unless height is auto
       height 100%
       overflow-y auto
     pointer-events none
@@ -27,15 +42,14 @@
     if fade
       transition opacity fade ease
     &.{active}
-      unless height
+      if height is auto
         position relative
       pointer-events auto
       opacity 1
 
-tabs(side='top', height=0, navSize=auto, fade=0.3s, active="active")
+tabs(side='top', height=auto, navSize=auto, fade=0.3s, active="active")
+  height height
   display flex
-  if height
-    height height
   flex-wrap nowrap
   if side is 'top'
     flex-direction column

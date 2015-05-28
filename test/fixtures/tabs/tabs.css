@@ -2,6 +2,7 @@
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
+  height: auto;
   display: -ms-flexbox;
   display: box;
   display: flex;
@@ -49,6 +50,9 @@
 }
 .tabs > *:last-child > * {
   position: absolute;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   top: 0;
   left: 0;
   width: 100%;

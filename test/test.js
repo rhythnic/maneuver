@@ -53,6 +53,16 @@ describe('api', function () {
   });
 });
 
+describe('tabs', function () {
+  var $path;
+  before(function () {
+    $path = path.join(test_path, 'tabs');
+  });
+  it('tabs', function (done) {
+    compile_and_match(path.join($path, 'tabs.styl'), done);
+  });
+});
+
 describe('offcanvas', function () {
   var $path;
   before(function () {
