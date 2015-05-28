@@ -13,11 +13,11 @@ npm install maneuver
 
 <a href="http://rhythnic.github.io/maneuver-docs/">Docs are here.</a>
 
-### Release 0.0.13
+### Version 0.0.13
 Tabs added.
 Changed toggle parameters.
 
-### Release 0.0.11
+### Version 0.0.11
 FlipCard added.
 
 In the offcanvas mixin, some terminology changed.  Push used to be the minimum screen width at which the content width shrinks when the menu is open.  Now, 'share', refers to that width.  Push is now a boolean parameter for choosing to push the content instead of overlapping it.  Push only applies when show or share aren't in effect.
