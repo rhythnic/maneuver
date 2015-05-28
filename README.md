@@ -13,7 +13,7 @@ npm install maneuver
 
 <a href="http://rhythnic.github.io/maneuver-docs/">Docs are here.</a>
 
-### Release 0.0.12
+### Release 0.0.13
 Tabs added.
 Changed toggle parameters.
 
