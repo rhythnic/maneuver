@@ -13,6 +13,10 @@ npm install maneuver
 
 <a href="http://rhythnic.github.io/maneuver-docs/">Docs are here.</a>
 
+### Release 0.0.12
+Tabs added.
+Changed toggle parameters.
+
 ### Release 0.0.11
 FlipCard added.
 
